@@ -1,0 +1,1 @@
+﻿//Esse arquivo serve como host para as outra requisões js na area de layout compartilhado
