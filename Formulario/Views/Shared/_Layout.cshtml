@@ -6,8 +6,67 @@
     <title>@ViewData["Title"] - Formulario</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    <environment include="Production">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+        <link href="~/css/EstiloDispensa.min.css" rel="stylesheet" />
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <title>@ViewData["Title"] &minus; CompraF&aacute;cil</title>
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.light-blue-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+    </environment>
+
+    <environment include="Development">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <title>@ViewData["Title"] &minus; CompraF&aacute;cil</title>
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.light-blue-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+
+        <style>
+            header:after {
+                content: "Dev";
+                position: fixed;
+                width: 80px;
+                height: 25px;
+                background: #ff0000;
+                top: 7px;
+                left: -20px;
+                text-align: center;
+                font-size: 13px;
+                font-family: sans-serif;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #fff;
+                line-height: 27px;
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+        </style>
+    </environment>
+
 </head>
 <body>
+
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
@@ -40,6 +99,19 @@
             &copy; 2020 - Formulario - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
+    <environment include="Production">
+        <script src="~/assets/js/JavaScriptGeral.js"></script>
+        <script src="~/assets/js/plugins.min.js"></script>
+        <script src="~/assets/js/app.min.js"></script>
+
+    </environment>
+    <environment include="Development">
+        <script src="~/assets/js/JavaScriptGeral.js"></script>
+        <script src="~/assets/js/plugins.min.js"></script>
+        <script src="~/assets/js/app.min.js"></script>
+    </environment>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
