@@ -2,19 +2,50 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center justify-content-center">
+    <h1 class="display-4">Bem-Vindo</h1>
+    <p>Este site é destinado apenas a pessoas participantes do nosso projeto.</p>
 </div>
 
-<div class="input-group">
-    <input type="text" readonly="" class="form-control" placeholder="asdasdasd">
-    <span class="input-group-btn input-group-sm">
-        <button type="button" class="btn btn-fab btn-fab-mini">
-            <i class="material-icons">attach_file</i>
-        </button>
-    </span>
-            <label>asdasdasdasdasd</label>
+<div class="row">
+    <div class="text-center" style="margin-left:12%">
+        <div id="carousel-example-generic" class="ms-carousel carousel slide col-12" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item">
+                    <img class="d-block img-fluid" src="assets/img/demo/car1.png" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Lorem ipsum dolor</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item active">
+                    <img class="d-block img-fluid" src="assets/img/demo/car2.jpg" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Lorem ipsum dolor</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block img-fluid" src="assets/img/demo/paris.jpg" alt="...">
+                    <div class="carousel-caption">
+                        <h3>Lorem ipsum dolor</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a href="#carousel-example-generic" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary left carousel-control-prev" role="button" data-slide="prev"><i class="zmdi zmdi-chevron-left"></i></a>
+            <a href="#carousel-example-generic" class="btn-circle btn-circle-xs btn-circle-raised btn-circle-primary right carousel-control-next" role="button" data-slide="next"><i class="zmdi zmdi-chevron-right"></i></a>
+        </div>
+    </div>
 </div>
+
 
 
