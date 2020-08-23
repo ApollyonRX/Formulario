@@ -49,15 +49,53 @@
             </div>
 
             <div class="header-right">
-                @*@if (!Model)
-                    {*@
-                <a asp-area="Autenticador"
-                   asp-controller="Conta"
-                   asp-action="Login"
+                <a data-toggle="modal" data-target="#myModal"
                    class="btn-circle btn-circle-primary no-focus animated zoomInDown animation-delay-8 zmdi-hc-lg">
                     <i class="fas fa-user fa-1x"></i>
                 </a>
-                @*}*@
+                <!-- Modal -->
+                <div class="modal modal-dark" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog animated zoomIn animated-3x" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title color-white" id="myModalLabel">Acesso ao sistema</h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row form-group is-empty">
+                                    <label for="inputUser" class="col-md-2 control-label">Usuário</label>
+                                    <div class="col-md-9">
+                                        <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                                    </div>
+                                </div>
+                                <div class="row form-group is-empty">
+                                    <label for="inputPassword" class="col-md-2 control-label">Senha</label>
+                                    <div class="col-md-9">
+                                        <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                                    </div>
+                                </div>
+                                <div class="justify-content-between row m-2">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">
+                                            <span class="checkbox-material">
+                                                <span class="ml-2">Manter-se Conectado</span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div>
+                                        <a href="#">Esqueceu-se do seu acesso?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-raised btn-info" data-dismiss="modal">Registrar-se</button>
+                                <button type="button" class="btn btn-raised btn-success">Acessar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form class="search-form animated zoomInDown animation-delay-9">
                     <input id="search-box" type="text" class="search-input" placeholder="Search..." name="q">
                     <label for="search-box"><i class="zmdi zmdi-search"></i></label>
@@ -78,7 +116,8 @@
             <div class="collapse navbar-collapse" id="ms-navbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Página Inicial</a>
+                        <a asp-controller="Home"
+                   asp-action="index" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Página Inicial</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Relatório</a>
