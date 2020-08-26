@@ -47,15 +47,7 @@
                     <h1 class="animated fadeInRight animation-delay-6">Invest<span>M&D</span></h1>
                 </a>
             </div>
-
-            <div class="header-right">
-                <a data-toggle="modal" data-target="#myModal"
-                   class="btn-circle btn-circle-primary no-focus animated zoomInDown animation-delay-8 zmdi-hc-lg">
-                    <i class="fas fa-user fa-1x"></i>
-                </a>
-            </div>
         </div>
-
 
 
     </header>
@@ -87,7 +79,6 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Dúvidas</a>
                     </li>
-                    <partial name="_LoginPartial" />
                 </ul>
             </div>
         </div>
@@ -111,53 +102,8 @@
             </div>
         </div>
     </footer>
-    <div class="modal modal-dark" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog animated zoomIn animated-3x" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title color-white" id="myModalLabel">Acesso ao sistema</h3>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row form-group is-empty">
-                        <label for="inputUser" class="col-md-2 control-label">Usuário</label>
-                        <div class="col-md-9">
-                            <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
-                        </div>
-                    </div>
-                    <div class="row form-group is-empty">
-                        <label for="inputPassword" class="col-md-2 control-label">Senha</label>
-                        <div class="col-md-9">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
-                        </div>
-                    </div>
-                    <div class="justify-content-between row m-2">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox">
-                                <span class="checkbox-material">
-                                    <span class="ml-2">Manter-se Conectado</span>
-                                </span>
-                            </label>
-                        </div>
-                        <div>
-                            <a href="#">Esqueceu-se do seu acesso?</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal">Cancelar</button>
-                    <a asp-controller="Conta"
-                       asp-action="Criar" class="btn btn-raised btn-info">Registrar-se</a>
-                    <button type="button" class="btn btn-raised btn-success">Acessar</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 
-
-<!-- Modal -->
 
 
 </html>

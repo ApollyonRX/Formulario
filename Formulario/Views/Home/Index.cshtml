@@ -10,14 +10,12 @@
 <div class="row">
     <div class="text-center" style="margin-left:5%">
         <div id="carousel-example-generic" class="ms-carousel carousel slide col-12" data-ride="carousel">
-
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
             </ol>
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item">
@@ -48,8 +46,54 @@
         </div>
     </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-default btn-raised" data-toggle="modal" data-target="#myModal">
+    Launch demo modal
+</button>
 
-
+<!-- Modal -->
+<div class="modal modal-dark" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog animated zoomIn animated-3x" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title color-white" id="myModalLabel">Acesso ao sistema</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row form-group is-empty">
+                    <label for="inputUser" class="col-md-2 control-label">Usuário</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputPassword" class="col-md-2 control-label">Senha</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="justify-content-between row m-2">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">
+                            <span class="checkbox-material">
+                                <span class="ml-2">Manter-se Conectado</span>
+                            </span>
+                        </label>
+                    </div>
+                    <div>
+                        <a href="#">Esqueceu-se do seu acesso?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-raised btn-info" data-dismiss="modal">Registrar-se</button>
+                <button type="button" class="btn btn-raised btn-success">Acessar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
