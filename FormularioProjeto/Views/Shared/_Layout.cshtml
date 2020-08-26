@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#333">
+    <meta http-equiv="refresh" content="40000">
+    <environment include="Production">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+        <link href="~/css/EstiloDispensa.min.css" rel="stylesheet" />
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.grey-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+    </environment>
+
+    <environment include="Development">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.grey-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+    </environment>
+</head>
+<body>
+    <header class="ms-header ms-header-white">
+        <!--ms-header-primary-->
+        <div class="container container-fluid">
+            <div class="ms-title">
+                <a href="/Home/Index">
+                    <span class="ms-logo animated zoomInDown animation-delay-5"><i class="far fa-money-bill-alt"></i></span>
+                    <h1 class="animated fadeInRight animation-delay-6">Invest<span>M&D</span></h1>
+                </a>
+            </div>
+            @using Microsoft.AspNetCore.Identity
+
+            @inject SignInManager<UserApp> SignInManager
+            @inject UserManager<UserApp> UserManager
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+               
+            }
+            else
+            {
+                <div class="header-right">
+                    <a asp-controller="conta" asp-action="Login"
+                       class="btn-circle btn-circle-primary no-focus animated zoomInDown animation-delay-8 zmdi-hc-lg">
+                        <i class="fas fa-user fa-1x"></i>
+                    </a>
+                </div>
+            }
+        </div>
+
+
+
+    </header>
+    <nav class="navbar navbar-expand-md navbar-static ms-navbar ms-navbar-dark">
+        <div class="container container">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-controller="Home"
+                   asp-action="index">
+                    <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
+                    <span class="ms-logo ms-logo-sm">M</span>
+                    <span class="ms-title">Material <strong>Style</strong></span>
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ms-navbar" aria-controls="ms-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="ms-navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a asp-controller="Home"
+                           asp-action="index" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Página Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Relatório</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Meus Dados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="EnviarConta"
+                           asp-action="EnviarConta" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Enviar Conta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link dropdown-toggle animated fadeIn animation-delay-7">Dúvidas</a>
+                    </li>
+                    <partial name="_LoginPartial" />
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <hr />
+        <div class="text-center">
+            <div class="card card-dark-inverse">
+                <div class="card-body">
+                    Contato: contatoInvestMD@gmail.com
+                    <br />
+                    &copy; 2020 - InvestMD
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @*<div class="modal modal-dark" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <form class="form-horizontal" autocomplete="off" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <div class="modal-dialog animated zoomIn animated-3x" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title color-white" id="myModalLabel">Acesso ao sistema</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row form-group is-empty">
+                            <label for="inputUser" class="col-md-2 control-label">Usuário</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                            </div>
+                        </div>
+                        <div class="row form-group is-empty">
+                            <label for="inputPassword" class="col-md-2 control-label">Senha</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                            </div>
+                        </div>
+                        <div class="justify-content-between row m-2">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="checkbox-material">
+                                        <span class="ml-2">Manter-se Conectado</span>
+                                    </span>
+                                </label>
+                            </div>
+                            <div>
+                                <a href="#">Esqueceu-se do seu acesso?</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-raised btn-danger" data-dismiss="modal">Cancelar</button>
+                        <a asp-controller="Conta"
+                           asp-action="Registrar" class="btn btn-raised btn-info">Registrar-se</a>
+                        <button type="submit" class="btn btn-raised btn-success">Acessar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>*@
+
+</body>
+</html>
+<environment include="Production">
+    <script src="~/assets/js/JavaScriptGeral.js"></script>
+    <script src="~/assets/js/plugins.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+
+</environment>
+<environment include="Development">
+    <script src="~/assets/js/JavaScriptGeral.js"></script>
+    <script src="~/assets/js/plugins.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+</environment>
+@RenderSection("Scripts", required: false)

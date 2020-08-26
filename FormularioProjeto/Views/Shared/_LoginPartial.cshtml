@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<UserApp> SignInManager
+@inject UserManager<UserApp> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item justify-content-end" style="margin-left:10%">
+        <a id="manage" class="nav-link dropdown-toggle animated fadeIn animation-delay-7" title="Manage">Logado como @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="nav-item justify-content-end">
+        <form id="logoutForm" class="form-inline" asp-controller="conta" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link animated fadeIn dropdown-toggle animation-delay-7">Sair</button>
+        </form>
+    </li>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle animated fadeIn animation-delay-7" id="login" asp-controller="conta" asp-action="Login">Acessar</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle animated fadeIn animation-delay-7" id="register" asp-controller="conta" asp-action="Registrar">Registre-se</a>
+        </li>
+    </ul>
+}

@@ -1,0 +1,70 @@
+﻿@model FormularioProjeto.Models.EnviarContaViewModels.EnviarContaViewModel
+@{
+    ViewData["Title"] = "EnviarConta";
+}
+
+<div class="card card-dark">
+    <div class="card-header">
+        <h3 class="card-title text-center">Envio de Conta</h3>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" autocomplete="off" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <fieldset>
+                <div class="row form-group is-empty">
+                    <label for="inputName" asp-for="@Model.NomeCompleto" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.NomeCompleto)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.NomeCompleto" id="inputName" placeholder="Nome Completo">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputLast" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.EmailBet)</label>
+                    <div class="col-md-9">
+                        <input type="email"  class="form-control" asp-for="@Model.EmailBet" id="inputLast" placeholder="Email cadastrado no site da bet365">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="inputGen" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.SenhaEmail)</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" asp-for="@Model.SenhaEmail" id="inputLast" placeholder="Senha do email cadastrado no site da bet365">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputDate" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.LoginBet)</label>
+                    <div class="col-md-9">
+                        <input asp-for="@Model.LoginBet" type="text" class="form-control" placeholder="Login da conta no site da Bet365">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputUser" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.SenhaBet)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.SenhaBet" id="inputUser" placeholder="Senha da conta no site da Bet365">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputEmail" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.CodigoSeg)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.CodigoSeg" id="inputEmail" placeholder="Código de Segurança da conta no site da Bet365" required>
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputPassword" class="col-md-2 control-label">@Html.DisplayNameFor(x => x.CPF)</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.CPF" id="inputPassword" placeholder="CPF do proprietário da conta">
+                    </div>
+                </div>
+
+
+                <div class="row mt-2 justify-content-end">
+                    <div class="col-lg-3 mt-5">
+                        <button class="btn btn-raised btn-primary btn-block" type="submit">Enviar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

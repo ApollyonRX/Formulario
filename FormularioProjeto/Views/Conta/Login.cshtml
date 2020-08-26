@@ -1,0 +1,116 @@
+﻿@model FormularioProjeto.Models.ContaViewModels.LoginViewModel
+@{
+    Layout = "";
+}
+<head>
+    <environment include="Production">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+        <link href="~/css/EstiloDispensa.min.css" rel="stylesheet" />
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.grey-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+    </environment>
+
+    <environment include="Development">
+        <!-- [if lt IE 9] -->
+        <script src="~/assets/js/html5shiv.min.js"></script>
+        <script src="~/assets/js/respond.min.js"></script>
+        <!-- [endif] -->
+
+        <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+        <meta name="description" content="Material Style Theme">
+        <link rel="stylesheet" href="~/assets/css/preload.min.css">
+        <link rel="stylesheet" href="~/assets/css/plugins.min.css">
+        <link href="~/assets/css/style.grey-800.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/width-boxed.min.css" id="ms-boxed" disabled="">
+    </environment>
+</head>
+
+<body style="overflow: visible;">
+    <div id="ms-preload" class="ms-preload" style="display: none;">
+        <div id="status" style="display: none;">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-full-page bg-primary back-fixed">
+        <div class="mw-500 absolute-center">
+            <div class="card color-dark animated zoomInDown animation-delay-5">
+                <div class="card-body">
+                    <h1 class="color-primary text-center">Entrar</h1>
+                    <form class="form-horizontal" autocomplete="off" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <fieldset>
+                            <div class="form-group label-floating is-empty">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                    <label class="control-label" for="ms-form-user">Usuário</label>
+                                    <input type="text" asp-for="Usuario" id="ms-form-user" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group label-floating is-empty">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="zmdi zmdi-lock"></i></span>
+                                    <label class="control-label" for="ms-form-pass">Senha</label>
+                                    <input type="password" asp-for="Senha" id="ms-form-pass" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mt-2 mb-2">
+                                <div class="checkbox">
+                                    <label>
+                                        <input asp-for="lembrar" type="checkbox">
+                                        <span class="checkbox-material">
+                                            <span class="">@Html.DisplayNameFor(x => x.lembrar)</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <button class="btn btn-raised btn-primary btn-block" type="submit">Acessar <i class="zmdi zmdi-long-arrow-right no-mr ml-1"></i></button>
+                                </div>
+                                <div class="col-md-6">
+                                    <a asp-controller="Conta"
+                                       asp-action="Registrar" class="btn btn-primary btn-block"><i class="zmdi zmdi-account-add mr-1"></i> Cadastrar-se</a>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    @*<div class="text-center">
+                        <h3 class="color-dark">Acessar com</h3>
+                        <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-facebook"><i class="zmdi zmdi-facebook"></i> Facebook</a>
+                        <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-twitter"><i class="zmdi zmdi-twitter"></i> Twitter</a>
+                        <a href="javascript:void(0)" class="wave-effect-light btn btn-raised btn-google"><i class="zmdi zmdi-google"></i> Google</a>
+                    </div>*@
+                </div>
+            </div>
+            <div class="text-center animated fadeInUp animation-delay-7">
+                <a asp-controller="home" asp-action="index" class="btn btn-white"><i class="zmdi zmdi-home"></i> Página Inicial</a>
+                <a href="javascript:void(0)" class="btn btn-white"><i class="zmdi zmdi-key"></i>Recuperação de Senha</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+<environment include="Production">
+    <script src="~/assets/js/JavaScriptGeral.js"></script>
+    <script src="~/assets/js/plugins.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+
+</environment>
+<environment include="Development">
+    <script src="~/assets/js/JavaScriptGeral.js"></script>
+    <script src="~/assets/js/plugins.min.js"></script>
+    <script src="~/assets/js/app.min.js"></script>
+</environment>
