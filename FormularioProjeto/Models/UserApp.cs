@@ -12,7 +12,6 @@ namespace FormularioProjeto.Models
         public string Sobrenome { get; set; }
         public string Genero { get; set; }
         public DateTime DataNascimento { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
+
     }
 }

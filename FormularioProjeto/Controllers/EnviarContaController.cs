@@ -8,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace FormularioProjeto.Controllers
 {
+    [Authorize]
+
     public class EnviarContaController : Controller
     {
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles ="ADMINISTRADOR,CLIENTE")]
         public IActionResult EnviarConta()
         {
             return View();

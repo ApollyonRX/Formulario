@@ -1,0 +1,80 @@
+﻿@model FormularioProjeto.Models.ContaViewModels.RegistrarViewModel
+@{
+    ViewData["Title"] = "Registrar Administrador";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="card card-dark">
+    <div class="card-header">
+        <h3 class="card-title text-center">Cadastro de Usuário</h3>
+    </div>
+    <div class="card-body">
+        <form class="form-horizontal" autocomplete="off" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <fieldset>
+                <div class="row form-group is-empty">
+                    <label for="inputName" class="col-md-2 control-label">Primeiro Nome</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.PrimeiroNome" id="inputName" placeholder="Primeiro Nome">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputLast" class="col-md-2 control-label">Sobrenome</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.Sobrenome" id="inputLast" placeholder="Sobrenome">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <label for="inputGen" class="col-md-2 control-label">Gênero</label>
+                    <div class="col-md-9">
+                        <select id="inputGen" asp-for="@Model.Genero" class="form-control selectpicker">
+                            <option>Masculino</option>
+                            <option>Feminino </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputDate" class="col-md-2 control-label">Data de nascimento</label>
+                    <div class="col-md-9">
+                        <input  asp-for="@Model.DataNascimento" type="date" class="form-control" placeholder="00/00/0000">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputUser" class="col-md-2 control-label">Login</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" asp-for="@Model.Login" id="inputUser" placeholder="Usuário">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputEmail" class="col-md-2 control-label">Email</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" asp-for="@Model.Email" id="inputEmail" placeholder="Exemplo@exemplo.com" required>
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputPassword" class="col-md-2 control-label">Senha</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" asp-for="@Model.Senha" id="inputPassword" placeholder="Senha">
+                    </div>
+                </div>
+                <div class="row form-group is-empty">
+                    <label for="inputPassword2" class="col-md-2 control-label">Senha</label>
+                    <div class="col-md-9">
+                        <input type="password" class="form-control" asp-for="@Model.ConfirmacaoDeSenha" id="inputPassword2" placeholder="Confirmação de Senha">
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-lg-3 mt-5">
+                        <button class="btn btn-raised btn-primary btn-block" type="submit">Registrar</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

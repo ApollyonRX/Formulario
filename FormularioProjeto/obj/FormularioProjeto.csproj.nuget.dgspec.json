@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Menacho\\source\\repos\\FormularioProjeto\\FormularioProjeto.csproj": {}
+    "D:\\Arquivos\\PROJETOS PESSOAIS\\Formulario\\FormularioProjeto\\FormularioProjeto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Menacho\\source\\repos\\FormularioProjeto\\FormularioProjeto.csproj": {
+    "D:\\Arquivos\\PROJETOS PESSOAIS\\Formulario\\FormularioProjeto\\FormularioProjeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Menacho\\source\\repos\\FormularioProjeto\\FormularioProjeto.csproj",
+        "projectUniqueName": "D:\\Arquivos\\PROJETOS PESSOAIS\\Formulario\\FormularioProjeto\\FormularioProjeto.csproj",
         "projectName": "FormularioProjeto",
-        "projectPath": "C:\\Users\\Menacho\\source\\repos\\FormularioProjeto\\FormularioProjeto.csproj",
+        "projectPath": "D:\\Arquivos\\PROJETOS PESSOAIS\\Formulario\\FormularioProjeto\\FormularioProjeto.csproj",
         "packagesPath": "C:\\Users\\Menacho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Menacho\\source\\repos\\FormularioProjeto\\obj\\",
+        "outputPath": "D:\\Arquivos\\PROJETOS PESSOAIS\\Formulario\\FormularioProjeto\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"

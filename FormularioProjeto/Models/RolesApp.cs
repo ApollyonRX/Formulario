@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace FormularioProjeto.Models
 {
-    public class RolesApp:IdentityRole<Guid>
+    public class RolesApp : IdentityRole<Guid>
     {
+        public RolesApp()
+        {
+
+        }
+
+        public RolesApp(string roleName) : base(roleName)
+        {
+
+        }
     }
 }

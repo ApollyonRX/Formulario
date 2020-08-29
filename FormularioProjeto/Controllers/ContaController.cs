@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using FormularioProjeto.Models;
 using FormularioProjeto.Models.ContaViewModels;
@@ -26,7 +27,7 @@ namespace FormularioProjeto.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Registrar(string returnUrl = null)
+        public IActionResult RegistrarCliente(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
 
@@ -36,7 +37,7 @@ namespace FormularioProjeto.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Registrar(RegistrarViewModel model, string returnUrl = null)
+        public async Task<IActionResult> RegistrarCliente(RegistrarViewModel model, string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
@@ -49,11 +50,13 @@ namespace FormularioProjeto.Controllers
                     Sobrenome = model.Sobrenome,
                     Genero = model.Genero,
                     DataNascimento = model.DataNascimento,
-                    Senha = model.Senha
                 };
                 var result = await _userManager.CreateAsync(novoUsuario, model.Senha);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(novoUsuario, "CLIENTE");
+                    //await _userManager.AddClaimAsync(novoUsuario, new Claim("Politica", "01"));
+
                     if (!string.IsNullOrEmpty(returnUrl))
                     {
                         return RedirectToLocal(returnUrl);
@@ -73,6 +76,62 @@ namespace FormularioProjeto.Controllers
 
             return View(model);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult RegistrarADM(string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RegistrarADM(RegistrarViewModel model, string returnUrl = null)
+        {
+            ViewData["ReturnUrl"] = returnUrl;
+            if (ModelState.IsValid)
+            {
+                var novoUsuario = new UserApp()
+                {
+                    UserName = model.Login,
+                    Email = model.Email,
+                    PrimeiroNome = model.PrimeiroNome,
+                    Sobrenome = model.Sobrenome,
+                    Genero = model.Genero,
+                    DataNascimento = model.DataNascimento,
+                };
+                var result = await _userManager.CreateAsync(novoUsuario, model.Senha);
+                if (result.Succeeded)
+                {
+                    await _userManager.AddToRolesAsync(novoUsuario, new List<string> { "ADMINISTRADOR", "CLIENTE" });
+                    //await _userManager.AddClaimAsync(novoUsuario, new Claim("Politica", "01"));
+
+                    if (!string.IsNullOrEmpty(returnUrl))
+                    {
+                        return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction(nameof(HomeController.Index), "Home");
+                    }
+                }
+
+                foreach (var erro in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, erro.Description);
+                }
+
+            }
+
+            return View(model);
+        }
+
+
+
+
         protected IActionResult RedirectToLocal(string returnUrl = "") => Url.IsLocalUrl(returnUrl)
            ? Redirect(returnUrl)
            : (IActionResult)RedirectToAction(nameof(HomeController.Index), "Home");
@@ -114,6 +173,13 @@ namespace FormularioProjeto.Controllers
                 }
             }
             return View(model);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult AcessoNegado()
+        {
+            return View();
         }
 
         [HttpPost]
